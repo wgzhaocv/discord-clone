@@ -26,7 +26,7 @@ model Server {
   id         String @id @default(uuid())
   name       String
   imageUrl   String @db.Text
-  inviteCode String @db.Text
+  inviteCode String @unique
 
   profieId String
   profile  Profile @relation(fields: [profieId], references: [id], onDelete: Cascade)

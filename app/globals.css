@@ -79,4 +79,8 @@ body,
   body {
     @apply bg-background text-foreground;
   }
+
+  .myhidden {
+    @apply hidden;
+  }
 }
