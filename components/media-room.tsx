@@ -17,11 +17,14 @@ interface MediaRoomProps {
 export const MediaRoom = ({ chatId, video, audio }: MediaRoomProps) => {
   const { user } = useUser();
   const [token, setToken] = useState("");
+  console.log("media room user out", user);
 
   useEffect(() => {
-    if (!user?.firstName || !user.lastName) return;
+    if (!user?.firstName && !user?.lastName) return;
 
-    const name = `${user.firstName} ${user.lastName}`;
+    console.log("media room user", user);
+
+    const name = `${user.firstName}${user.lastName ?? ""}`;
     (async () => {
       try {
         const res = await fetch(`/api/livekit?room=${chatId}&username=${name}`);
